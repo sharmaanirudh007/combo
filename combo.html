@@ -1,0 +1,63 @@
+<html>
+
+	<head>
+	  <title>Search Box</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h2>Select City to Find out who live in it...</h2>
+			<div class="col-md-6">
+				<div class="form-group">
+					<span>City</span>
+					<input  class="form-control" list="browse" id="name" onchange="inst(this)">
+				</div>	
+					<datalist id="browse" >
+					<option value="Jaipur">Jaipur</option>
+		            <option value="Pune">Pune</option>
+		            <option value="Mumbai">Mumbai</option>
+					</datalist>
+				<div class="form-group">
+					<span>Name</span>
+			        <select id="names" class="form-control">
+			        	<option>Select name</option>
+			        </select>
+			    </div>    
+	    	</div>
+    	</div>
+
+
+
+
+<script>
+var arr = [{name:"Joe", city:"Jaipur"},{name:"Jack", city:"Jaipur"},{name:"jame", city:"Pune"},{name:"Justin", city:"Pune"},{name:"Ram", city:"Mumbai"},{name:"Laxman", city:"Mumbai"}];
+function inst(val){
+
+document.getElementById("names").innerHTML='';
+var lenght = arr.length;
+var i=0;
+while(lenght>0){
+
+if(arr[i].city==val.value){
+var para = document.createElement("option");
+para.value = arr[i].city;
+var node = document.createTextNode(arr[i].name);
+para.appendChild(node);
+
+var element = document.getElementById("names");
+
+element.appendChild(para);
+}
+	lenght--;
+    i++;
+}
+			
+			}
+</script>
+
+	</body>
+</html>
